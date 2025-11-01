@@ -16,7 +16,7 @@ Dự án bao gồm các trang tĩnh sau:
 
 ---
 
-## 💻 Công nghệ sử dụng
+## Công nghệ sử dụng
 
 * **HTML5
 * **CSS3
