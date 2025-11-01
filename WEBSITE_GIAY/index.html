@@ -1,0 +1,1277 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Home - MEODIGIAY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<style>
+
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    header {
+        background-color: #fff;
+        padding: 15px 0;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+
+    .nav-link {
+        position: relative;
+        padding: 8px 15px !important;
+    }
+
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 2px;
+            background-color: #ff6b6b;
+            transition: width 0.3s;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+    .btn-warning {
+        background-color: #ff6b6b;
+        border-color: #ff6b6b;
+        color: white;
+    }
+
+        .btn-warning:hover {
+            background-color: #ff5252;
+            border-color: #ff5252;
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.2);
+        }
+
+    .part {
+        padding: 80px 0;
+    }
+
+    .part-a {
+        background-color: #f8f9fa;
+    }
+
+    .part-bb {
+        background-color: #ff6b6b;
+        color: #fff;
+        position: relative;
+        overflow: hidden;
+    }
+
+        .part-bb::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, rgba(255,107,107,0.9) 0%, rgba(78,205,196,0.9) 100%);
+            z-index: 1;
+        }
+
+        .part-bb .container {
+            position: relative;
+            z-index: 2;
+        }
+
+    .hove {
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+        .hove:hover {
+            transform: scale(1.1);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+
+    .image-border {
+        border-radius: 20px;
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        transition: transform 0.3s ease;
+    }
+
+        .image-border:hover {
+            transform: translateY(-10px);
+        }
+
+    .banner-high {
+        height: 70vh;
+        object-fit: cover;
+    }
+
+    .card {
+        border: none;
+        border-radius: 15px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        overflow: hidden;
+    }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+    .card-img-top {
+        height: 200px;
+        object-fit: cover;
+    }
+
+    footer {
+        background-color: #2d3436;
+        color: #fff;
+        padding: 60px 0 20px;
+    }
+
+    .footer-section h5 {
+        color: #ff6b6b;
+        margin-bottom: 20px;
+        font-weight: 600;
+    }
+
+    .footer-links {
+        list-style: none;
+        padding: 0;
+    }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #dfe6e9;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+            .footer-links a:hover {
+                color: #ff6b6b;
+            }
+
+    .social-links a {
+        color: #fff;
+        margin-right: 15px;
+        font-size: 20px;
+        transition: color 0.3s;
+    }
+
+        .social-links a:hover {
+            color: #ff6b6b;
+        }
+
+    /* Thêm hiệu ứng cho carousel */
+    .carousel-item {
+        position: relative;
+    }
+
+    .carousel-caption {
+        background: rgba(0,0,0,0.5);
+        border-radius: 15px;
+        padding: 20px;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    /* Style cho phần thanh toán */
+    .payment-method {
+        background: white;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+        transition: transform 0.3s ease;
+    }
+
+        .payment-method:hover {
+            transform: translateY(-5px);
+        }
+
+    .img-width {
+        width: 8rem;
+        transition: transform 0.3s ease;
+    }
+
+        .img-width:hover {
+            transform: scale(1.1);
+        }
+
+    .dropdown-menu {
+        border: none;
+        box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+        border-radius: 10px;
+        padding: 10px;
+    }
+
+    .dropdown-item {
+        padding: 8px 20px;
+        color: #666;
+        transition: all 0.3s ease;
+    }
+
+        .dropdown-item:hover {
+            background-color: #ff6b6b;
+            color: white;
+            border-radius: 5px;
+        }
+
+    .nav-item.dropdown:hover .dropdown-menu {
+        display: block;
+    }
+
+    /* Thêm style cho phần danh mục sản phẩm */
+    .product-categories {
+        padding: 60px 0;
+        background: #f8f9fa;
+    }
+
+    .category-card {
+        background: white;
+        border-radius: 15px;
+        overflow: hidden;
+        transition: all 0.3s ease;
+        margin-bottom: 30px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+    }
+
+        .category-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+    .category-image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+        .category-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+    .category-card:hover .category-image img {
+        transform: scale(1.1);
+    }
+
+    .category-content {
+        padding: 20px;
+        text-align: center;
+    }
+
+        .category-content h3 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: #333;
+        }
+
+        .category-content p {
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+    .btn-explore {
+        background-color: #ff6b6b;
+        color: white;
+        padding: 8px 20px;
+        border-radius: 25px;
+        transition: all 0.3s ease;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+        .btn-explore:hover {
+            background-color: #ff5252;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+    .product-card img {
+        height: 160px;
+        object-fit: contain;
+    }
+
+    .product-title {
+        font-size: 1rem;
+        min-height: 48px;
+    }
+
+    .product-discount {
+        z-index: 2;
+    }
+
+    .product-prices {
+        font-size: 1.1rem;
+    }
+
+    @media (max-width: 575.98px) {
+        .product-card img {
+            height: 120px;
+        }
+
+        .product-title {
+            min-height: 36px;
+        }
+    }
+
+    /* Thêm hiệu ứng cho sản phẩm */
+    .product-card {
+        transition: all 0.3s ease;
+        cursor: pointer;
+        position: relative;
+        overflow: hidden;
+        animation: fadeIn 0.5s ease forwards;
+    }
+
+    .product-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    }
+
+    .product-card img {
+        height: 160px;
+        object-fit: contain;
+        transition: transform 0.5s ease;
+    }
+
+    .product-card:hover img {
+        transform: scale(1.1);
+    }
+
+    .product-discount {
+        z-index: 2;
+        animation: bounce 1s infinite;
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-5px);
+        }
+    }
+
+    .product-title {
+        font-size: 1rem;
+        min-height: 48px;
+        transition: color 0.3s ease;
+    }
+
+    .product-card:hover .product-title {
+        color: #ff6b6b;
+    }
+
+    .product-prices {
+        font-size: 1.1rem;
+        position: relative;
+    }
+
+    .product-prices .text-muted {
+        transition: opacity 0.3s ease;
+        position: relative;
+    }
+
+    .product-prices .text-muted::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 0;
+        width: 100%;
+        height: 1px;
+        background-color: #dc3545;
+        transform: rotate(-5deg);
+    }
+
+    .product-card:hover .product-prices .text-muted {
+        opacity: 0.7;
+    }
+
+    .product-prices .font-weight-bold {
+        transition: color 0.3s ease;
+    }
+
+    .product-card:hover .product-prices .font-weight-bold {
+        color: #ff6b6b;
+    }
+
+    /* Thêm hiệu ứng cho nút mua hàng */
+    .product-card::after {
+        content: 'Mua Ngay';
+        position: absolute;
+        bottom: -50px;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        background-color: #ff6b6b;
+        color: white;
+        text-align: center;
+        transition: bottom 0.3s ease;
+        opacity: 0;
+    }
+
+    .product-card:hover::after {
+        bottom: 0;
+        opacity: 1;
+    }
+
+    /* Thêm hiệu ứng loading cho sản phẩm */
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Thêm hiệu ứng hover cho toàn bộ card */
+    .product-card::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(45deg, rgba(255,107,107,0.1) 0%, rgba(78,205,196,0.1) 100%);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+        z-index: 1;
+    }
+
+    .product-card:hover::before {
+        opacity: 1;
+    }
+
+    /* Đảm bảo nội dung hiển thị trên gradient */
+    .product-card > * {
+        position: relative;
+        z-index: 2;
+    }
+
+    /* Thêm hiệu ứng cho container sản phẩm */
+    .featured-products .row {
+        opacity: 0;
+        animation: fadeInUp 0.5s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+        from {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    /* Thêm hiệu ứng cho tiêu đề danh mục */
+    .featured-products h2 {
+        position: relative;
+        display: inline-block;
+        margin-bottom: 30px;
+    }
+
+        .featured-products h2::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: #ff6b6b;
+            transition: width 0.3s ease;
+        }
+
+    .featured-products:hover h2::after {
+        width: 100px;
+    }
+
+    /* Style cơ bản cho thanh tìm kiếm */
+    .search-container {
+        position: relative;
+    }
+
+    .search-results {
+        display: none;
+    }
+
+    .search-item {
+        padding: 10px 15px;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: background-color 0.3s;
+    }
+
+        .search-item:hover {
+            background-color: #f8f9fa;
+        }
+
+        .search-item .product-title {
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+
+        .search-item .product-price {
+            color: #ff6b6b;
+            font-weight: bold;
+        }
+
+        .search-item .product-category {
+            font-size: 0.8rem;
+            color: #666;
+        }
+
+    .no-results {
+        padding: 15px;
+        text-align: center;
+        color: #666;
+    }
+
+    .toast-container {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        z-index: 9999;
+    }
+
+    .custom-toast {
+        background: #4CAF50;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        animation: slideIn 0.5s ease-out;
+    }
+
+    @keyframes slideIn {
+        from {
+            transform: translateX(100%);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateX(0);
+            opacity: 1;
+        }
+    }
+
+    /* Style cho thông báo đăng nhập thành công */
+    .login-success {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        background: #4CAF50;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        z-index: 9999;
+    }
+</style>
+<body>
+    <!-- Thêm container cho thông báo -->
+    <div id="notificationContainer" style="position: fixed; top: 20px; right: 20px; z-index: 9999;"></div>
+
+    <!-- Header -->
+    <header class="bg-white py-2 shadow-sm sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-12 col-md-3 d-flex align-items-center mb-2 mb-md-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img src="./logo.png" alt="logo" style="width: 3rem; height: 3rem; object-fit: contain;" class="mr-2">
+                        <span class="h4 mb-0 font-weight-bold text-primary" style="letter-spacing:2px;">MEODIGIAY</span>
+                    </a>
+                </div>
+                <!-- Navigation -->
+                <div class="d-none d-md-block col-md-6">
+                    <nav>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNam" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nam
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNam">
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sneaker">Sneaker</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                    <a class="dropdown-item" href="#" data-category="giay-luoi">Giày Lười</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nữ
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNu">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê - Dép Quai Ngang</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownTreEm" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày trẻ em
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownTreEm">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Search and Buttons -->
+                <div class="col-12 col-md-3 d-flex justify-content-end align-items-center gap-2 mt-2 mt-md-0">
+                    <div class="search-container flex-grow-1 mr-2" style="min-width: 180px;">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="search-results position-absolute bg-white shadow-sm rounded" style="width: 100%; display: none; z-index: 1000; max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                    <div id="welcomeMessage" class="d-none">
+                        <span class="text-primary font-weight-bold">Xin chào khách hàng!</span>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary px-3 mx-1" id="btnLogin" style="height:38px;min-width:70px;">Login</button>
+                    <button type="button" class="btn btn-primary px-3 mx-1" id="btnSignin" style="height:38px;min-width:70px;">Signin</button>
+                    <a id="cartIcon" class="btn btn-light border d-flex align-items-center justify-content-center mx-1" style="height:38px;width:38px;position:relative;" href="GioHang.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Modal containers will be loaded dynamically -->
+    <div id="modalContainer"></div>
+
+    <!-- Main content container -->
+    <main>
+        <!-- Slideshow -->
+        <div id="myCarousel" class="carousel slide" data-ride="carousel">
+            <!-- Các chấm báo hiệu vị trí slide -->
+            <ol class="carousel-indicators">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1"></li>
+                <li data-target="#myCarousel" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Slides -->
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img class="d-block w-100 banner-high" src="./source/images/banner/banner.jpg" alt="Slide 1">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Bộ Sưu Tập Mới Nhất</h2>
+                        <p>Khám phá các mẫu giày thời trang mới nhất với ưu đãi đặc biệt</p>
+                        <a href="#" class="btn btn-warning btn-lg">Mua Ngay</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 banner-high" src="./source/images/banner/banner1.jpg" alt="Slide 2">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Giảm Giá Mùa Hè</h2>
+                        <p>Ưu đãi lên đến 50% cho các sản phẩm hot</p>
+                        <a href="#" class="btn btn-warning btn-lg">Xem Ngay</a>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img class="d-block w-100 banner-high" src="./source/images/banner/banner2.jpg" alt="Slide 3">
+                    <div class="carousel-caption d-none d-md-block">
+                        <h2>Thương Hiệu Nổi Tiếng</h2>
+                        <p>Các sản phẩm chính hãng từ các thương hiệu hàng đầu</p>
+                        <a href="#" class="btn btn-warning btn-lg">Khám Phá</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- < > -->
+            <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+
+
+        <!-- CÁC LOGO THƯƠNG HIỆU GIÀY -->
+        <div class="navbar navbar-light mb-5 p-3" style="background-color: white;">
+            <div class="container">
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/adida.jpg" alt="Adidas" width="100" height="auto" class="d-inline-block hove">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/converse.jpg" alt="Converse" width="100" height="auto" class="d-inline-block hove">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/nike.jpg" alt="Nike" width="100" height="auto" class="d-inline-block hove">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/plus.jpg" alt="Plus" width="100" height="auto" class="d-inline-block hove">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/cros.jpg" alt="Cros" width="100" height="auto" class="d-inline-block hove">
+                </a>
+                <a class="navbar-brand" href="#">
+                    <img src="./source/images/logo/fila.jpg" alt="Fila" width="100" height="auto" class="d-inline-block hove">
+                </a>
+            </div>
+        </div>
+
+        <!-- SẢN PHẨM NỔI BẬT -->
+        <section class="py-5">
+            <div class="container">
+                <!---->
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>NIKE</h2>
+                        <p>
+                            Thiết kế thể thao hiện đại, nổi bật với sự kết hợp của phong cách và tính tiện dụng.
+                            Dây đai khóa giữa (midfoot strap) giúp tăng cường độ bám và sự thoải mái khi mang.
+                            Phù hợp với nhiều hoạt động như: luyện tập thể thao, chạy bộ hoặc sử dụng trong các dịp hàng ngày.
+                            Thiết kế đảm bảo sự thoải mái và hỗ trợ tốt cho bàn chân trong thời gian dài.
+                        </p>
+                        <a class="btn btn-warning">Tới Cửa Hàng</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./source/images/nike2.jpg" alt="Placeholder Image" class="img-fluid image-border">
+                    </div>
+                </div>
+                <!---->
+                <div class="row align-items-center mt-5">
+                    <div class="col-md-6 order-md-2">
+                        <h2>FILA</h2>
+                        <p>
+                            Giày có thiết kế dáng dày (chunky), tạo cảm giác mạnh mẽ và chắc chắn.
+                            Đế giày có đường nét răng cưa, mang lại độ bám vượt trội trên nhiều bề mặt.
+                            Được làm từ sự kết hợp giữa da và vải lưới, giúp tăng độ bền, thông thoáng, và thoải mái khi sử dụng.
+                        </p>
+                        <a class="btn btn-warning">Tới Cửa Hàng</a>
+                    </div>
+                    <div class="col-md-6 order-md-1">
+                        <img src="./source/images/fila1.jpg" alt="Placeholder Image" class="img-fluid image-border">
+                    </div>
+                </div>
+                <!---->
+                <div class="row align-items-center">
+                    <div class="col-md-6">
+                        <h2>ADIDAS CAMPUS</h2>
+                        <p>
+                            Một thiết kế mang phong cách cổ điển và biểu tượng của thương hiệu Adidas.
+                            Chúng có phần thân bằng da lộn màu đen, kết hợp với ba sọc trắng đặc trưng và phần gót giày cũng được làm từ da trắng.
+                        </p>
+                        <a class="btn btn-warning">Tới Cửa Hàng</a>
+                    </div>
+                    <div class="col-md-6">
+                        <img src="./source/images/adidas1.jpg" alt="Placeholder Image" class="img-fluid image-border">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- SẢN PHẨM NỔI BẬT KIỂU MỚI -->
+        <section class="featured-products py-5">
+            <div class="container">
+                <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap">
+                    <h2 class="mb-0">SẢN PHẨM BÁN CHẠY</h2>
+                    <select class="form-control w-auto" style="min-width:180px;">
+                        <option>Thứ tự mặc định</option>
+                        <option>Giá tăng dần</option>
+                        <option>Giá giảm dần</option>
+                        <option>Mới nhất</option>
+                    </select>
+                </div>
+                <div class="row">
+                    <!-- Sản phẩm 1 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="1">
+                            <img src="./images2/nam_sn1.jpg" class="img-fluid mb-3" alt="Shoe 1">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-30%</div>
+                            <div class="product-title mb-2">Dép Kẹp – Giày Sneaker Band Baya Màu Nâu Cho Nữ</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">500,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">350,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 2 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="2">
+                            <img src="./images2/nam_sn2.jpg" class="img-fluid mb-3" alt="Shoe 2">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-30%</div>
+                            <div class="product-title mb-2">Dép Kẹp – Giày Sneaker Band Baya Màu Xám Cho Nữ</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">500,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">350,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 3 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="3">
+                            <img src="./images2/nam_sn3.jpg" class="img-fluid mb-3" alt="Shoe 3">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-30%</div>
+                            <div class="product-title mb-2">Dép Kẹp – Giày Sneaker Band Baya Màu Xanh Cho Nữ</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">500,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">350,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 4 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="4">
+                            <img src="./images2/nam_sn4.jpg" class="img-fluid mb-3" alt="Shoe 4">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-37%</div>
+                            <div class="product-title mb-2">Dép nữ phong cách vintage mã BBD11 có 2 màu đen và kem</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">99,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">62,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 5 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="5">
+                            <img src="./images2/nam_sn5.jpg" class="img-fluid mb-3" alt="Shoe 5">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-20%</div>
+                            <div class="product-title mb-2">Giày Sneakers – Giày Nam Literide Màu Đen Đế Trắng</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">725,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">580,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 6 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="6">
+                            <img src="./images2/nu_sn1.jpg" class="img-fluid mb-3" alt="Shoe 6">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-20%</div>
+                            <div class="product-title mb-2">Giày Sneakers – Giày Nam Literide Màu Xanh Navy</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">725,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">580,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 7 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="7">
+                            <img src="./images2/nu_sn2.jpg" class="img-fluid mb-3" alt="Shoe 7">
+                            <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;font-weight:600;font-size:1rem;">-10%</div>
+                            <div class="product-title mb-2">Giày Thể Thao Crocs Literide Màu Navy</div>
+                            <div class="product-prices mb-1">
+                                <span class="text-muted" style="text-decoration:line-through;">500,000đ</span>
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">450,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Sản phẩm 8 -->
+                    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                        <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-product-id="8">
+                            <img src="./images2/nu_sn3.jpg" class="img-fluid mb-3" alt="Shoe 8">
+                            <div class="product-title mb-2">Dép Kẹp – Dép Tông Cross Band Baya Màu Đen Cho Nam Nữ</div>
+                            <div class="product-prices mb-1">
+                                <span class="font-weight-bold ml-2" style="font-size:1.2rem;">350,000đ</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- Ưu Đãi Nổi Bật -->
+        <section class="promotions py-5">
+            <div class="container">
+
+                <h2 class="mb-5 text-center">Ưu Đãi Nổi Bật</h2>
+
+                <div class="row">
+
+                    <!-- Card 1: Ưu Đãi Mùa Hè -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="./source/images/summer.jpg" class="card-img-top" alt="Ưu Đãi Mùa Hè">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ưu Đãi Mùa Hè</h5>
+                                <p class="card-text">
+                                    Giảm giá tới 20% cho tất cả các mẫu giày mùa hè và miễn phí vận chuyển cho đơn hàng đầu tiên.
+                                </p>
+                                <a href="#" class="btn btn-warning">Xem Chi Tiết</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 2: Ưu Đãi Dành Cho Bạn Mới -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="./source/images/welcome.jpg" class="card-img-top" alt="Ưu Đãi Cho Bạn Mới">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ưu Đãi Cho Bạn Mới</h5>
+                                <p class="card-text">
+                                    Nhận ngay voucher 50,000đ và ưu đãi 10% cho đơn hàng đầu tiên khi đăng ký tài khoản mới.
+                                </p>
+                                <a href="#" class="btn btn-warning">Đăng Ký Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Ưu Đãi Đại Lễ Quốc Gia -->
+                    <div class="col-md-4 mb-4">
+                        <div class="card h-100">
+                            <img src="./source/images/daile.jpg" class="card-img-top" alt="Ưu Đãi Đại Lễ Quốc Gia">
+                            <div class="card-body text-center">
+                                <h5 class="card-title">Ưu Đãi Đại Lễ Quốc Gia</h5>
+                                <p class="card-text">
+                                    Giảm thêm 15% cho các sản phẩm hot trong dịp lễ quốc gia. Chương trình có thời gian có hạn.
+                                </p>
+                                <a href="#" class="btn btn-warning">Khám Phá Ngay</a>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </section>
+
+        <!---->
+        <section class="part part-a text-center">
+            <div class="container">
+                <h2 class="mb-5">PHƯƠNG THỨC THANH TOÁN</h2>
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>1</h3>
+                        <p>Ship COD.</p>
+                        <img src="./source/images/cod.png" alt="cod" class="img-width">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>2</h3>
+                        <p>Thanh Toán Qua Ngân Hàng.</p>
+                        <img src="./source/images/cardbank.png" alt="cod" class="img-width">
+                    </div>
+                    <div class="col-md-4">
+                        <h3>3</h3>
+                        <p>Thanh Toán Qua Ví Điện Tử Momo.</p>
+                        <img src="./source/images/momo.png" alt="cod" class="img-width">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!---->
+        <section class="part part-b text-center">
+            <div class="container">
+                <h2 class="mb-4">Sẵn sàng để trải nghiệm chứ?</h2>
+                <p class="mb-4">Hãy tạo tài khoản miễn phí của bạn ngay và bắt đầu khám phá các dịch vụ của chúng tôi.</p>
+                <button class="btn btn-lg btn-primary">Tạo Tài Khoản</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer mới -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-section">
+                    <h5>Về MEODIGIAY</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Chính sách</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Hỗ trợ khách hàng</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Kết nối với chúng tôi</h5>
+                    <div class="social-links mb-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <h5>Hotline hỗ trợ</h5>
+                    <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i>1900 1234</p>
+                    <p><i class="fas fa-envelope mr-2"></i>support@meodigiay.com</p>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <p class="mb-0">&copy; 2025 MEODIGIAY. Tất cả quyền được bảo lưu.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <img src="./source/images/payment-methods.png" alt="Phương thức thanh toán" style="height: 30px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- SCRIPT -->
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Thêm hiệu ứng smooth scroll
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    if (this.getAttribute('href') !== '#') {
+                        e.preventDefault();
+                        document.querySelector(this.getAttribute('href')).scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+        });
+
+        // Thêm hiệu ứng cho header khi scroll
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                document.querySelector('header').style.backgroundColor = '#fff';
+                document.querySelector('header').style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
+            } else {
+                document.querySelector('header').style.backgroundColor = '#fff';
+                document.querySelector('header').style.boxShadow = 'none';
+            }
+        });
+
+        // Load và hiển thị modal đăng nhập
+        $('#btnLogin').click(function() {
+            $('#modalContainer').load('./source/pages/login.html', function() {
+                $('#loginModal').modal('show');
+            });
+        });
+
+        // Load và hiển thị modal đăng ký
+        $('#btnSignin').click(function() {
+            $('#modalContainer').load('./source/pages/signin.html', function() {
+                $('#signinModal').modal('show');
+            });
+        });
+
+        // Xử lý đăng nhập - sử dụng event delegation
+        $(document).on('submit', '#loginForm', function(e) {
+            e.preventDefault();
+
+            // Hiển thị thông báo thành công
+            $('body').append('<div class="login-success">Đăng nhập thành công!</div>');
+
+            // Ẩn thông báo sau 3 giây
+            setTimeout(function() {
+                $('.login-success').remove();
+            }, 3000);
+
+            // Ẩn modal đăng nhập
+            $('#loginModal').modal('hide');
+
+            // Ẩn nút đăng nhập/đăng ký và hiện lời chào
+            $('#btnLogin, #btnSignin').hide();
+            $('#welcomeMessage').show();
+
+            // Reset form
+            $('#loginForm')[0].reset();
+        });
+
+        // Xử lý click vào menu dropdown
+        $('.dropdown-item').on('click', function(e) {
+            e.preventDefault();
+            const category = $(this).data('category');
+            const parentMenu = $(this).closest('.dropdown-menu').attr('aria-labelledby');
+            let targetFile = '';
+
+            // Xác định file cần tải dựa vào menu được chọn
+            if (parentMenu === 'navbarDropdownNam') {
+                targetFile = 'Giaynam.html';
+            } else if (parentMenu === 'navbarDropdownNu') {
+                targetFile = 'Giaynu.html';
+            } else if (parentMenu === 'navbarDropdownTreEm') {
+                targetFile = 'Giay_tre_em.html';
+            }
+
+            // Tải nội dung sản phẩm
+            $.get(targetFile, function(response) {
+                // Tạo một div tạm để parse HTML
+                const tempDiv = $('<div>').html(response);
+                const productContent = tempDiv.find('.featured-products');
+
+                // Tạo nội dung mới với banner và các phần khác
+                const newContent = `
+                    <!-- Slideshow -->
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <!-- Các chấm báo hiệu vị trí slide -->
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#myCarousel" data-slide-to="1"></li>
+                            <li data-target="#myCarousel" data-slide-to="2"></li>
+                        </ol>
+
+                        <!-- Slides -->
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img class="d-block w-100 banner-high" src="./source/images/banner/banner.jpg" alt="Slide 1">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Bộ Sưu Tập Mới Nhất</h2>
+                                    <p>Khám phá các mẫu giày thời trang mới nhất với ưu đãi đặc biệt</p>
+                                    <a href="#" class="btn btn-warning btn-lg">Mua Ngay</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 banner-high" src="./source/images/banner/banner1.jpg" alt="Slide 2">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Giảm Giá Mùa Hè</h2>
+                                    <p>Ưu đãi lên đến 50% cho các sản phẩm hot</p>
+                                    <a href="#" class="btn btn-warning btn-lg">Xem Ngay</a>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <img class="d-block w-100 banner-high" src="./source/images/banner/banner2.jpg" alt="Slide 3">
+                                <div class="carousel-caption d-none d-md-block">
+                                    <h2>Thương Hiệu Nổi Tiếng</h2>
+                                    <p>Các sản phẩm chính hãng từ các thương hiệu hàng đầu</p>
+                                    <a href="#" class="btn btn-warning btn-lg">Khám Phá</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- < > -->
+                        <a class="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#myCarousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
+
+                    <!-- CÁC LOGO THƯƠNG HIỆU GIÀY -->
+                    <div class="navbar navbar-light mb-5 p-3" style="background-color: white;">
+                        <div class="container">
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/adida.jpg" alt="Adidas" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/converse.jpg" alt="Converse" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/nike.jpg" alt="Nike" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/plus.jpg" alt="Plus" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/cros.jpg" alt="Cros" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                            <a class="navbar-brand" href="#">
+                                <img src="./source/images/logo/fila.jpg" alt="Fila" width="100" height="auto" class="d-inline-block hove">
+                            </a>
+                        </div>
+                    </div>
+
+                ${productContent.prop('outerHTML')}
+                `;
+
+                // Thay thế nội dung trong main
+                $('main').html(newContent);
+
+                // Khởi tạo lại carousel
+                $('.carousel').carousel();
+
+                // Gán lại sự kiện click cho .product-card sau khi load menu
+                $('.product-card').off('click').on('click', function() {
+                    const productId = $(this).data('product-id');
+                    const productTitle = $(this).find('.product-title').text();
+                    const productPrice = $(this).find('.product-prices .font-weight-bold').text();
+                    const originalPrice = $(this).find('.product-prices .text-muted').text();
+                    const discount = $(this).find('.product-discount').text();
+                    const productImage = $(this).find('img').attr('src');
+                    localStorage.setItem('currentProduct', JSON.stringify({
+                        id: productId,
+                        title: productTitle,
+                        price: productPrice,
+                        originalPrice: originalPrice,
+                        discount: discount,
+                        image: productImage
+                    }));
+                    window.location.href = 'Chi_tiet_sp.html';
+                });
+
+                // Lọc sản phẩm theo category
+                if (category) {
+                    // Ẩn tất cả sản phẩm trước
+                    $('.product-card').parent().hide();
+
+                    // Hiển thị sản phẩm thuộc category được chọn
+                    $(`.product-card[data-category="${category}"]`).parent().show();
+
+                    // Cập nhật tiêu đề danh mục
+                    let categoryTitle = '';
+                    switch(category) {
+                        case 'dep-kep':
+                            categoryTitle = 'DÉP KẸP - DÉP XỎ NGÓN';
+                            break;
+                        case 'sneakers':
+                            categoryTitle = 'SNEAKERS';
+                            break;
+                        case 'sandal':
+                            categoryTitle = 'SANDAL';
+                            break;
+                        case 'dep-le':
+                            categoryTitle = 'DÉP LÊ - DÉP QUAI NGANG';
+                            break;
+                    }
+                    $('.featured-products h2').text(categoryTitle);
+                }
+
+                // Cuộn lên đầu trang
+                window.scrollTo(0, 0);
+            });
+        });
+
+
+        });
+    </script>
+    <script src="cart.js"></script>
+</body>
+</html>

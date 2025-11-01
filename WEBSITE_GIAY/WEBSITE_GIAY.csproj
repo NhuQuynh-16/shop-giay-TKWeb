@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81B28AF5-8A91-485D-A39B-A4D8A3733F82}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WEBSITE_GIAY</RootNamespace>
+    <AssemblyName>WEBSITE_GIAY</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="cart.js" />
+    <Content Include="Chi_tiet_sp.html" />
+    <Content Include="css\bootstrap-grid.css" />
+    <Content Include="css\bootstrap-grid.min.css" />
+    <Content Include="css\bootstrap-grid.rtl.css" />
+    <Content Include="css\bootstrap-grid.rtl.min.css" />
+    <Content Include="css\bootstrap-reboot.css" />
+    <Content Include="css\bootstrap-reboot.min.css" />
+    <Content Include="css\bootstrap-reboot.rtl.css" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css" />
+    <Content Include="css\bootstrap-utilities.css" />
+    <Content Include="css\bootstrap-utilities.min.css" />
+    <Content Include="css\bootstrap-utilities.rtl.css" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css" />
+    <Content Include="css\bootstrap.css" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\bootstrap.rtl.css" />
+    <Content Include="css\bootstrap.rtl.min.css" />
+    <Content Include="DonHang.html" />
+    <Content Include="Giaynam.html" />
+    <Content Include="Giaynu.html" />
+    <Content Include="Giay_tre_em.html" />
+    <Content Include="GioHang.html" />
+    <Content Include="images2\converse_chuck - Copy.jpg" />
+    <Content Include="images2\giay_tay_nam - Copy.jpg" />
+    <Content Include="images2\laraede - Copy.jpg" />
+    <Content Include="images2\moccasin - Copy.jpg" />
+    <Content Include="images2\nam_sn1.jpg" />
+    <Content Include="images2\nam_sn2.jpg" />
+    <Content Include="images2\nam_sn3.jpg" />
+    <Content Include="images2\nam_sn4.jpg" />
+    <Content Include="images2\nam_sn5.jpg" />
+    <Content Include="images2\nu_sd1.jpg" />
+    <Content Include="images2\nu_sd2.jpg" />
+    <Content Include="images2\nu_sd3.jpg" />
+    <Content Include="images2\nu_sd4.jpg" />
+    <Content Include="images2\nu_sd5.jpg" />
+    <Content Include="images2\nu_sn1.jpg" />
+    <Content Include="images2\nu_sn2.jpg" />
+    <Content Include="images2\nu_sn3.jpg" />
+    <Content Include="images2\nu_sn4.jpg" />
+    <Content Include="images2\nu_sn5.jpg" />
+    <Content Include="images2\oakmont - Copy.jpg" />
+    <Content Include="images2\superstar_2.jpg" />
+    <Content Include="images2\te_sn1.jpg" />
+    <Content Include="images2\te_sn2.jpg" />
+    <Content Include="images2\te_sn3.jpg" />
+    <Content Include="images2\te_sn4.jpg" />
+    <Content Include="images2\te_sn5.jpg" />
+    <Content Include="images2\unisex_native.jpg" />
+    <Content Include="images2\xpcl10jmax.jpg" />
+    <Content Include="index.html" />
+    <Content Include="js\bootstrap.bundle.js" />
+    <Content Include="js\bootstrap.bundle.min.js" />
+    <Content Include="js\bootstrap.esm.js" />
+    <Content Include="js\bootstrap.esm.min.js" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="logo.png" />
+    <Content Include="source\images\adidas1.jpg" />
+    <Content Include="source\images\banner\banner.jpg" />
+    <Content Include="source\images\banner\banner1.jpg" />
+    <Content Include="source\images\banner\banner2.jpg" />
+    <Content Include="source\images\cardbank.png" />
+    <Content Include="source\images\cod.png" />
+    <Content Include="source\images\daile.jpg" />
+    <Content Include="source\images\fila1.jpg" />
+    <Content Include="source\images\giỏ hàng.png" />
+    <Content Include="source\images\hotline.png" />
+    <Content Include="source\images\logo\adida.jpg" />
+    <Content Include="source\images\logo\converse.jpg" />
+    <Content Include="source\images\logo\cros.jpg" />
+    <Content Include="source\images\logo\fila.jpg" />
+    <Content Include="source\images\logo\nike.jpg" />
+    <Content Include="source\images\logo\plus.jpg" />
+    <Content Include="source\images\momo.png" />
+    <Content Include="source\images\nike1.jpg" />
+    <Content Include="source\images\nike2.jpg" />
+    <Content Include="source\images\shoes.png" />
+    <Content Include="source\images\summer.jpg" />
+    <Content Include="source\images\welcome.jpg" />
+    <Content Include="source\images\đăng nhập đăng ký.png" />
+    <Content Include="source\pages\login.html" />
+    <Content Include="source\pages\signin.html" />
+    <Content Include="ThanhToan.html" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\bootstrap-grid.css.map" />
+    <Content Include="css\bootstrap-grid.min.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.css.map" />
+    <Content Include="css\bootstrap-grid.rtl.min.css.map" />
+    <Content Include="css\bootstrap-reboot.css.map" />
+    <Content Include="css\bootstrap-reboot.min.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.css.map" />
+    <Content Include="css\bootstrap-reboot.rtl.min.css.map" />
+    <Content Include="css\bootstrap-utilities.css.map" />
+    <Content Include="css\bootstrap-utilities.min.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.css.map" />
+    <Content Include="css\bootstrap-utilities.rtl.min.css.map" />
+    <Content Include="css\bootstrap.css.map" />
+    <Content Include="css\bootstrap.min.css.map" />
+    <Content Include="css\bootstrap.rtl.css.map" />
+    <Content Include="css\bootstrap.rtl.min.css.map" />
+    <Content Include="js\bootstrap.bundle.js.map" />
+    <Content Include="js\bootstrap.bundle.min.js.map" />
+    <Content Include="js\bootstrap.esm.js.map" />
+    <Content Include="js\bootstrap.esm.min.js.map" />
+    <Content Include="js\bootstrap.js.map" />
+    <Content Include="js\bootstrap.min.js.map" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>5694</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:5694/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

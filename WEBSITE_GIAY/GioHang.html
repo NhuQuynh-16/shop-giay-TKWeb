@@ -1,0 +1,624 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Giỏ hàng - MEODIGIAY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Thêm hiệu ứng cho tiêu đề danh mục */
+        .featured-products h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+            .featured-products h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background-color: #ff6b6b;
+                transition: width 0.3s ease;
+            }
+
+        .featured-products:hover h2::after {
+            width: 100px;
+        }
+
+      
+        .search-container {
+            position: relative;
+        }
+
+        .search-results {
+            display: none;
+        }
+
+        .search-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .search-item:hover {
+                background-color: #f8f9fa;
+            }
+
+            .search-item .product-title {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+
+            .search-item .product-price {
+                color: #ff6b6b;
+                font-weight: bold;
+            }
+
+            .search-item .product-category {
+                font-size: 0.8rem;
+                color: #666;
+            }
+
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 15px !important;
+        }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 2px;
+                background-color: #ff6b6b;
+                transition: width 0.3s;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fff;
+        }
+
+
+        footer {
+            background-color: #2d3436;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-section h5 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                color: #dfe6e9;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .footer-links a:hover {
+                    color: #ff6b6b;
+                }
+
+        .social-links a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+            .social-links a:hover {
+                color: #ff6b6b;
+            }
+
+        .cart-main {
+            max-width: 1200px;
+            margin: 40px auto 0;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+        }
+
+        .cart-title {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 32px;
+            color: #222;
+        }
+
+        .cart-steps {
+            color: #bbb;
+            font-size: 1.2rem;
+            margin-bottom: 32px;
+        }
+
+            .cart-steps .active {
+                color: #222;
+                font-weight: bold;
+            }
+
+        .cart-table th, .cart-table td {
+            vertical-align: middle;
+            text-align: center;
+        }
+
+        .cart-table th {
+            background: #fafafa;
+            font-weight: 600;
+            color: #888;
+            border: none;
+        }
+
+        .cart-table td {
+            border: none;
+        }
+
+        .cart-img {
+            width: 70px;
+            height: 70px;
+            object-fit: contain;
+            border-radius: 8px;
+            background: #fafbfc;
+        }
+
+        .cart-remove {
+            color: #ff6b6b;
+            font-size: 1.3rem;
+            cursor: pointer;
+            transition: color 0.2s;
+        }
+
+            .cart-remove:hover {
+                color: #d32f2f;
+            }
+
+        .cart-attr {
+            color: #888;
+            font-size: 0.95rem;
+            text-align: left;
+        }
+
+        .cart-qty-group {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .cart-qty-btn {
+            background: #eee;
+            border: none;
+            width: 32px;
+            height: 32px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #222;
+            border-radius: 4px;
+            transition: background 0.2s;
+        }
+
+            .cart-qty-btn:hover {
+                background: #ff6b6b;
+                color: #fff;
+            }
+
+        .cart-qty-input {
+            width: 48px;
+            text-align: center;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin: 0 4px;
+        }
+
+        .cart-actions {
+            margin-top: 24px;
+        }
+
+            .cart-actions .btn {
+                min-width: 200px;
+                font-weight: bold;
+                font-size: 1rem;
+                border-radius: 0;
+            }
+
+            .cart-actions .btn-outline-dark {
+                border-width: 2px;
+            }
+
+        .cart-summary-box {
+            background: #fff5f5;
+            border-radius: 12px;
+            padding: 32px 24px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.03);
+        }
+
+        .cart-summary-title {
+            font-size: 1.1rem;
+            font-weight: bold;
+            color: #888;
+            margin-bottom: 16px;
+        }
+
+        .cart-summary-row {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 12px;
+            font-size: 1.1rem;
+        }
+
+            .cart-summary-row.total {
+                font-weight: bold;
+                color: #ff6b6b;
+                font-size: 1.3rem;
+            }
+
+        .btn-checkout {
+            background: #ff6b6b;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 0;
+            width: 100%;
+            margin: 24px 0 16px;
+            padding: 14px 0;
+            transition: background 0.2s;
+            border: none;
+        }
+
+            .btn-checkout:hover {
+                background: #ff5252;
+            }
+
+        .cart-coupon {
+            margin-bottom: 16px;
+        }
+
+            .cart-coupon input {
+                border-radius: 0;
+            }
+
+            .cart-coupon .btn {
+                border-radius: 0;
+                background: #222;
+                color: #fff;
+                font-weight: bold;
+            }
+
+                .cart-coupon .btn:hover {
+                    background: #ff6b6b;
+                }
+
+        .cart-empty {
+            text-align: center;
+            color: #888;
+            font-size: 1.2rem;
+            margin: 40px 0;
+        }
+
+            .cart-empty img {
+                width: 120px;
+                opacity: 0.7;
+                margin-bottom: 16px;
+            }
+
+        .cart-service {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 48px auto 0;
+            max-width: 1000px;
+        }
+
+        .cart-service-item {
+            text-align: center;
+            color: #222;
+        }
+
+            .cart-service-item i {
+                color: #ff6b6b;
+                font-size: 2.2rem;
+                margin-bottom: 8px;
+            }
+
+            .cart-service-item span {
+                display: block;
+                font-size: 1.05rem;
+                font-weight: 500;
+                margin-top: 8px;
+            }
+
+        @media (max-width: 991.98px) {
+            .cart-main {
+                padding: 16px 4px;
+            }
+        }
+
+        @media (max-width: 767.98px) {
+            .cart-main {
+                padding: 8px 0;
+            }
+
+            .cart-service {
+                flex-direction: column;
+                gap: 24px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white py-2 shadow-sm sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-12 col-md-3 d-flex align-items-center mb-2 mb-md-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img src="./logo.png" alt="logo" style="width: 3rem; height: 3rem; object-fit: contain;" class="mr-2">
+                        <span class="h4 mb-0 font-weight-bold text-primary" style="letter-spacing:2px;">MEODIGIAY</span>
+                    </a>
+                </div>
+                <!-- Navigation -->
+                <div class="d-none d-md-block col-md-6">
+                    <nav>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNam" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nam
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNam">
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sneaker">Sneaker</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                    <a class="dropdown-item" href="#" data-category="giay-luoi">Giày Lười</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nữ
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNu">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê - Dép Quai Ngang</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownTreEm" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày trẻ em
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownTreEm">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Search and Buttons -->
+                <div class="col-12 col-md-3 d-flex justify-content-end align-items-center gap-2 mt-2 mt-md-0">
+                    <div class="search-container flex-grow-1 mr-2" style="min-width: 180px;">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="search-results position-absolute bg-white shadow-sm rounded" style="width: 100%; display: none; z-index: 1000; max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                    <div id="welcomeMessage" class="d-none">
+                        <span class="text-primary font-weight-bold">Xin chào khách hàng!</span>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary px-3 mx-1" id="btnLogin" style="height:38px;min-width:70px;">Login</button>
+                    <button type="button" class="btn btn-primary px-3 mx-1" id="btnSignin" style="height:38px;min-width:70px;">Signin</button>
+                    <a id="cartIcon" class="btn btn-light border d-flex align-items-center justify-content-center mx-1" style="height:38px;width:38px;position:relative;" href="GioHang.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Cart Layout -->
+    <div class="cart-main">
+        <div class="cart-title">Giỏ hàng</div>
+        <div class="row">
+            <!-- Left: Cart Items -->
+            <div class="col-lg-7 mb-4 mb-lg-0">
+                <div id="cartContent"></div>
+                <div class="cart-actions d-flex flex-wrap gap-2">
+                    <a href="index.html" class="btn btn-outline-dark mr-3 mb-2"><i class="fas fa-arrow-left mr-2"></i>TIẾP TỤC XEM SẢN PHẨM</a>
+                    <button class="btn btn-dark mb-2" id="updateCartBtn">CẬP NHẬT GIỎ HÀNG</button>
+                </div>
+            </div>
+            <!-- Right: Cart Summary -->
+            <div class="col-lg-5">
+                <div class="cart-summary-box">
+                    <div class="cart-summary-title">CỘNG GIỎ HÀNG</div>
+                    <div class="cart-summary-row"><span>Tạm tính</span><span id="cartSubtotal">0đ</span></div>
+                    <div class="cart-summary-row total"><span>Tổng</span><span id="cartTotal">0đ</span></div>
+                    <button class="btn btn-checkout">TIẾN HÀNH THANH TOÁN</button>
+                    <div class="cart-coupon">
+                        <div class="mb-2" style="font-weight:500;"><i class="fas fa-tag mr-2"></i>Mã ưu đãi</div>
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Mã ưu đãi" id="couponInput">
+                            <div class="input-group-append">
+                                <button class="btn" id="applyCouponBtn">Áp dụng</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Thông tin dịch vụ -->
+    <div class="cart-service mt-5 mb-4">
+        <div class="cart-service-item">
+            <i class="fas fa-shipping-fast"></i>
+            <span>Ship code toàn quốc</span>
+        </div>
+        <div class="cart-service-item">
+            <i class="fas fa-box-open"></i>
+            <span>Kiểm tra hàng trước khi thanh toán</span>
+        </div>
+        <div class="cart-service-item">
+            <i class="fas fa-sync-alt"></i>
+            <span>Đổi trả trong 7 ngày</span>
+        </div>
+        <div class="cart-service-item">
+            <i class="fas fa-credit-card"></i>
+            <span>Hình thức thanh toán</span>
+        </div>
+    </div>
+    <!-- Footer (giống) -->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-section">
+                    <h5>Về MEODIGIAY</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Chính sách</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Hỗ trợ khách hàng</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Kết nối với chúng tôi</h5>
+                    <div class="social-links mb-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <h5>Hotline hỗ trợ</h5>
+                    <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i>1900 1234</p>
+                    <p><i class="fas fa-envelope mr-2"></i>support@meodigiay.com</p>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <p class="mb-0">&copy; 2025 MEODIGIAY. Tất cả quyền được bảo lưu.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <img src="./source/images/payment-methods.png" alt="Phương thức thanh toán" style="height: 30px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="cart.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            Cart.renderCartPage();
+
+            // Xử lý sự kiện xóa sản phẩm
+            document.getElementById('cartContent').addEventListener('click', function (e) {
+                if (e.target.closest('.cart-remove')) {
+                    const idx = e.target.closest('.cart-remove').dataset.idx;
+                    Cart.removeFromCart(idx);
+                }
+            });
+
+            // Xử lý tăng/giảm số lượng sản phẩm
+            document.getElementById('cartContent').addEventListener('click', function (e) {
+                const button = e.target.closest('.cart-qty-btn');
+                if (button) {
+                    const idx = button.dataset.idx;
+                    const input = button.parentElement.querySelector('.cart-qty-input');
+                    let val = parseInt(input.value);
+                    if (button.classList.contains('decrease')) {
+                        val = Math.max(1, val - 1);
+                    } else {
+                        val += 1;
+                    }
+                    Cart.updateQuantity(idx, val);
+                }
+            });
+
+            // Xử lý thay đổi trực tiếp số lượng
+            document.getElementById('cartContent').addEventListener('change', function (e) {
+                if (e.target.classList.contains('cart-qty-input')) {
+                    const idx = e.target.dataset.idx;
+                    let val = parseInt(e.target.value);
+                    if (val < 1) val = 1;
+                    Cart.updateQuantity(idx, val);
+                }
+            });
+
+            // Nút cập nhật giỏ hàng
+            const updateCartBtn = document.getElementById('updateCartBtn');
+            if (updateCartBtn) {
+                updateCartBtn.addEventListener('click', function () {
+                    Cart.renderCartPage();
+                });
+            }
+
+            // Nút thanh toán
+            const checkoutBtns = document.querySelectorAll('.btn-checkout');
+            checkoutBtns.forEach(function (btn) {
+                btn.addEventListener('click', function () {
+                    window.location.href = 'ThanhToan.html';
+                });
+            });
+
+            // Nút áp dụng mã ưu đãi
+            const applyCouponBtn = document.getElementById('applyCouponBtn');
+            if (applyCouponBtn) {
+                applyCouponBtn.addEventListener('click', function () {
+                    alert('Chức năng mã ưu đãi đang phát triển!');
+                });
+            }
+        });
+    </script>
+
+</body>
+</html>

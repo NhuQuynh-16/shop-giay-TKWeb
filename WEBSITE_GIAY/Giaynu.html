@@ -1,0 +1,278 @@
+﻿<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Giày Dép Nữ - MEODIGIAY</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .product-card img {
+            height: 160px;
+            object-fit: contain;
+        }
+
+        .product-title {
+            font-size: 1rem;
+            min-height: 48px;
+        }
+
+        .product-discount {
+            z-index: 2;
+        }
+
+        .product-prices {
+            font-size: 1.1rem;
+        }
+
+        .custom-toast {
+            background: #4CAF50;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 5px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            animation: slideIn 0.5s ease-out;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 9999;
+        }
+        @keyframes slideIn {
+            from {
+                transform: translateX(100%);
+                opacity: 0;
+            }
+            to {
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PHẦN SẢN PHẨM NỮ -->
+    <section class="featured-products py-5">
+        <div class="container">
+            <h2 class="text-center mb-4" style="color:#d4842c; font-weight: bold;">GIÀY DÉP NỮ</h2>
+            <div class="row">
+                <!-- Sneakers (5 sản phẩm) -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sneakers">
+                        <img src="./images2/nu_sn1.jpg" class="img-fluid mb-3" alt="Sneakers 1">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-20%</div>
+                        <div class="product-title mb-2">Sneakers Màu Trắng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">800,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">640,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sneakers">
+                        <img src="./images2/nu_sn2.jpg" class="img-fluid mb-3" alt="Sneakers 2">
+                        <div class="product-title mb-2">Sneakers Màu Hồng</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">750,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sneakers">
+                        <img src="./images2/nu_sn3.jpg" class="img-fluid mb-3" alt="Sneakers 3">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-15%</div>
+                        <div class="product-title mb-2">Sneakers Màu Xanh</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">850,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">722,500đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sneakers">
+                        <img src="./images2/nu_sn4.jpg" class="img-fluid mb-3" alt="Sneakers 4">
+                        <div class="product-title mb-2">Sneakers Màu Đen</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">780,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sneakers">
+                        <img src="./images2/nu_sn5.jpg" class="img-fluid mb-3" alt="Sneakers 5">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-25%</div>
+                        <div class="product-title mb-2">Sneakers Màu Tím</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">900,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">675,000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dép Lê (5 sản phẩm) -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-le">
+                        <img src="./images2/nam_sn1.jpg" class="img-fluid mb-3" alt="Dép Lê 1">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-10%</div>
+                        <div class="product-title mb-2">Dép Lê Màu Đen</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">450,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">405,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-le">
+                        <img src="./images2/nam_sn2.jpg" class="img-fluid mb-3" alt="Dép Lê 2">
+                        <div class="product-title mb-2">Dép Lê Màu Trắng</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">420,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-le">
+                        <img src="./images2/nam_sn4.jpg" class="img-fluid mb-3" alt="Dép Lê 3">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-20%</div>
+                        <div class="product-title mb-2">Dép Lê Màu Hồng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">500,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">400,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-le">
+                        <img src="./images2/nam_sn3.jpg" class="img-fluid mb-3" alt="Dép Lê 4">
+                        <div class="product-title mb-2">Dép Lê Màu Xanh</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">430,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-le">
+                        <img src="./images2/nam_sn2.jpg" class="img-fluid mb-3" alt="Dép Lê 5">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-15%</div>
+                        <div class="product-title mb-2">Dép Lê Màu Vàng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">480,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">408,000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Dép Kẹp (5 sản phẩm) -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-kep">
+                        <img src="./images2/nam_sn5.jpg" class="img-fluid mb-3" alt="Dép Kẹp 1">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-20%</div>
+                        <div class="product-title mb-2">Dép Kẹp Màu Đen</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">350,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">280,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-kep">
+                        <img src="./images2/nam_sn2.jpg" class="img-fluid mb-3" alt="Dép Kẹp 2">
+                        <div class="product-title mb-2">Dép Kẹp Màu Trắng</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">320,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-kep">
+                        <img src="./images2/nam_sn3.jpg" class="img-fluid mb-3" alt="Dép Kẹp 3">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-15%</div>
+                        <div class="product-title mb-2">Dép Kẹp Màu Hồng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">380,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">323,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-kep">
+                        <img src="./images2/nam_sn4.jpg" class="img-fluid mb-3" alt="Dép Kẹp 4">
+                        <div class="product-title mb-2">Dép Kẹp Màu Xanh</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">330,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="dep-kep">
+                        <img src="./images2/nam_sn1.jpg" class="img-fluid mb-3" alt="Dép Kẹp 5">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-25%</div>
+                        <div class="product-title mb-2">Dép Kẹp Màu Vàng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">400,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">300,000đ</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Sandal (5 sản phẩm) -->
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sandal">
+                        <img src="./images2/nu_sd1.jpg" class="img-fluid mb-3" alt="Sandal 1">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-10%</div>
+                        <div class="product-title mb-2">Sandal Màu Đen</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">550,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">495,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sandal">
+                        <img src="./images2/nu_sd2.jpg" class="img-fluid mb-3" alt="Sandal 2">
+                        <div class="product-title mb-2">Sandal Màu Trắng</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">520,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sandal">
+                        <img src="./images2/nu_sd3.jpg" class="img-fluid mb-3" alt="Sandal 3">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-20%</div>
+                        <div class="product-title mb-2">Sandal Màu Hồng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">600,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">480,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sandal">
+                        <img src="./images2/nu_sd4.jpg" class="img-fluid mb-3" alt="Sandal 4">
+                        <div class="product-title mb-2">Sandal Màu Xanh</div>
+                        <div class="product-prices mb-1">
+                            <span class="font-weight-bold" style="font-size:1.2rem;">530,000đ</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-4">
+                    <div class="product-card position-relative h-100 p-3 text-center border rounded shadow-sm bg-white" data-category="sandal">
+                        <img src="./images2/nu_sd5.jpg" class="img-fluid mb-3" alt="Sandal 5">
+                        <div class="product-discount position-absolute" style="top:10px;left:10px;background:#f4a340;color:#fff;padding:4px 16px;border-radius:50px;">-15%</div>
+                        <div class="product-title mb-2">Sandal Màu Vàng</div>
+                        <div class="product-prices mb-1">
+                            <span class="text-muted" style="text-decoration:line-through;">580,000đ</span>
+                            <span class="font-weight-bold ml-2" style="font-size:1.2rem;">493,000đ</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <a id="cartIcon" class="btn btn-light border mx-1 d-flex align-items-center justify-content-center" style="height:32px;width:32px;position:relative;" href="GioHang.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span id="cartCount"></span>
+    </a>
+    <button class="btn btn-primary btn-sm mt-2 add-to-cart">Thêm vào giỏ</button>
+    <script src="cart.js"></script>
+</body>
+</html>

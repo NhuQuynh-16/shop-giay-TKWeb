@@ -1,0 +1,486 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Thanh toán - MEODIGIAY</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+       
+        body {
+            background: #f8f9fa;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            background-color: #fff;
+            padding: 15px 0;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-link {
+            position: relative;
+            padding: 8px 15px !important;
+        }
+
+            .nav-link::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 0;
+                height: 2px;
+                background-color: #ff6b6b;
+                transition: width 0.3s;
+            }
+
+            .nav-link:hover::after {
+                width: 100%;
+            }
+
+
+        footer {
+            background-color: #2d3436;
+            color: #fff;
+            padding: 60px 0 20px;
+        }
+
+        .footer-section h5 {
+            color: #ff6b6b;
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .footer-links {
+            list-style: none;
+            padding: 0;
+        }
+
+            .footer-links li {
+                margin-bottom: 10px;
+            }
+
+            .footer-links a {
+                color: #dfe6e9;
+                text-decoration: none;
+                transition: color 0.3s;
+            }
+
+                .footer-links a:hover {
+                    color: #ff6b6b;
+                }
+
+        .social-links a {
+            color: #fff;
+            margin-right: 15px;
+            font-size: 20px;
+            transition: color 0.3s;
+        }
+
+            .social-links a:hover {
+                color: #ff6b6b;
+            }
+
+        .checkout-container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 4px 24px rgba(0,0,0,0.07);
+            padding: 32px 24px;
+        }
+
+        .checkout-title {
+            color: #ff6b6b;
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 32px;
+        }
+
+        .form-label {
+            font-weight: 500;
+        }
+
+        .form-control, .custom-select {
+            border-radius: 6px;
+        }
+
+        .order-summary {
+            background: #fff5f5;
+            border-radius: 12px;
+            padding: 24px;
+            margin-top: 24px;
+        }
+
+            .order-summary h5 {
+                color: #ff6b6b;
+                font-weight: bold;
+            }
+
+            .order-summary .row {
+                font-size: 1.1rem;
+            }
+
+            .order-summary .total {
+                font-size: 1.3rem;
+                color: #ff6b6b;
+                font-weight: bold;
+            }
+
+        .btn-confirm {
+            background: #ff6b6b;
+            color: #fff;
+            font-weight: bold;
+            font-size: 1.1rem;
+            border-radius: 8px;
+            width: 100%;
+            padding: 14px 0;
+            margin-top: 24px;
+            border: none;
+        }
+
+            .btn-confirm:hover {
+                background: #ff5252;
+            }
+        .product-categories {
+            padding: 60px 0;
+            background: #f8f9fa;
+        }
+
+        .category-card {
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+            .category-card:hover {
+                transform: translateY(-10px);
+                box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+            }
+
+        .category-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+            .category-image img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                transition: transform 0.3s ease;
+            }
+
+        .category-card:hover .category-image img {
+            transform: scale(1.1);
+        }
+
+        .category-content {
+            padding: 20px;
+            text-align: center;
+        }
+
+            .category-content h3 {
+                margin-bottom: 10px;
+                font-size: 1.2rem;
+                color: #333;
+            }
+
+            .category-content p {
+                color: #666;
+                margin-bottom: 15px;
+            }
+        /* Thêm hiệu ứng cho tiêu đề danh mục */
+        .featured-products h2 {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 30px;
+        }
+
+            .featured-products h2::after {
+                content: '';
+                position: absolute;
+                bottom: -10px;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 50px;
+                height: 3px;
+                background-color: #ff6b6b;
+                transition: width 0.3s ease;
+            }
+
+        .featured-products:hover h2::after {
+            width: 100px;
+        }
+
+        
+        .search-container {
+            position: relative;
+        }
+
+        .search-results {
+            display: none;
+        }
+
+        .search-item {
+            padding: 10px 15px;
+            border-bottom: 1px solid #eee;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+            .search-item:hover {
+                background-color: #f8f9fa;
+            }
+
+            .search-item .product-title {
+                font-size: 0.9rem;
+                margin-bottom: 5px;
+            }
+
+            .search-item .product-price {
+                color: #ff6b6b;
+                font-weight: bold;
+            }
+
+            .search-item .product-category {
+                font-size: 0.8rem;
+                color: #666;
+            }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="bg-white py-2 shadow-sm sticky-top">
+        <div class="container">
+            <div class="row align-items-center">
+                <!-- Logo -->
+                <div class="col-12 col-md-3 d-flex align-items-center mb-2 mb-md-0">
+                    <a href="index.html" class="d-flex align-items-center text-decoration-none">
+                        <img src="./logo.png" alt="logo" style="width: 3rem; height: 3rem; object-fit: contain;" class="mr-2">
+                        <span class="h4 mb-0 font-weight-bold text-primary" style="letter-spacing:2px;">MEODIGIAY</span>
+                    </a>
+                </div>
+                <!-- Navigation -->
+                <div class="d-none d-md-block col-md-6">
+                    <nav>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNam" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nam
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNam">
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sneaker">Sneaker</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                    <a class="dropdown-item" href="#" data-category="giay-luoi">Giày Lười</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownNu" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày nữ
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownNu">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê - Dép Quai Ngang</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp - Dép Xỏ Ngón</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link text-dark font-weight-bold dropdown-toggle" href="#" id="navbarDropdownTreEm" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Giày trẻ em
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdownTreEm">
+                                    <a class="dropdown-item" href="#" data-category="sneakers">Sneakers</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-le">Dép Lê</a>
+                                    <a class="dropdown-item" href="#" data-category="dep-kep">Dép Kẹp</a>
+                                    <a class="dropdown-item" href="#" data-category="sandal">Sandal</a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+                <!-- Search and Buttons -->
+                <div class="col-12 col-md-3 d-flex justify-content-end align-items-center gap-2 mt-2 mt-md-0">
+                    <div class="search-container flex-grow-1 mr-2" style="min-width: 180px;">
+                        <input type="search" class="form-control" placeholder="Tìm kiếm sản phẩm...">
+                        <div class="search-results position-absolute bg-white shadow-sm rounded" style="width: 100%; display: none; z-index: 1000; max-height: 300px; overflow-y: auto;"></div>
+                    </div>
+                    <div id="welcomeMessage" class="d-none">
+                        <span class="text-primary font-weight-bold">Xin chào khách hàng!</span>
+                    </div>
+                    <button type="button" class="btn btn-outline-primary px-3 mx-1" id="btnLogin" style="height:38px;min-width:70px;">Login</button>
+                    <button type="button" class="btn btn-primary px-3 mx-1" id="btnSignin" style="height:38px;min-width:70px;">Signin</button>
+                    <a id="cartIcon" class="btn btn-light border d-flex align-items-center justify-content-center mx-1" style="height:38px;width:38px;position:relative;" href="GioHang.html">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span id="cartCount"></span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="checkout-container">
+        <div class="checkout-title"><i class="fas fa-credit-card mr-2"></i>Thanh toán</div>
+        <form id="checkoutForm">
+            <div class="row">
+                <div class="col-md-7">
+                    <div class="form-group">
+                        <label class="form-label">Họ và tên *</label>
+                        <input type="text" class="form-control" id="customerName" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Số điện thoại *</label>
+                        <input type="tel" class="form-control" id="customerPhone" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" id="customerEmail">
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Địa chỉ nhận hàng *</label>
+                        <input type="text" class="form-control" id="customerAddress" required>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Ghi chú</label>
+                        <textarea class="form-control" id="customerNote" rows="2"></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phương thức thanh toán *</label><br>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="cod" checked>
+                            <label class="form-check-label" for="cod">Thanh toán khi nhận hàng (COD)</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input class="form-check-input" type="radio" name="payment" id="bank">
+                            <label class="form-check-label" for="bank">Chuyển khoản ngân hàng</label>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-5">
+                    <div class="order-summary">
+                        <h5>Đơn hàng của bạn</h5>
+                        <div id="orderItems"></div>
+                        <div class="row mt-3">
+                            <div class="col-6">Tạm tính:</div>
+                            <div class="col-6 text-right" id="orderSubtotal">0đ</div>
+                        </div>
+                        <div class="row total">
+                            <div class="col-6">Tổng:</div>
+                            <div class="col-6 text-right" id="orderTotal">0đ</div>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-confirm">Xác nhận đặt hàng</button>
+                </div>
+            </div>
+        </form>
+    </div>
+    <!-- Footer-->
+    <footer>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-3 footer-section">
+                    <h5>Về MEODIGIAY</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Giới thiệu</a></li>
+                        <li><a href="#">Tin tức</a></li>
+                        <li><a href="#">Tuyển dụng</a></li>
+                        <li><a href="#">Liên hệ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Chính sách</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Chính sách đổi trả</a></li>
+                        <li><a href="#">Chính sách bảo hành</a></li>
+                        <li><a href="#">Chính sách bảo mật</a></li>
+                        <li><a href="#">Điều khoản dịch vụ</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Hỗ trợ khách hàng</h5>
+                    <ul class="footer-links">
+                        <li><a href="#">Hướng dẫn mua hàng</a></li>
+                        <li><a href="#">Hướng dẫn thanh toán</a></li>
+                        <li><a href="#">Câu hỏi thường gặp</a></li>
+                        <li><a href="#">Tra cứu đơn hàng</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-3 footer-section">
+                    <h5>Kết nối với chúng tôi</h5>
+                    <div class="social-links mb-4">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                        <a href="#"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                    <h5>Hotline hỗ trợ</h5>
+                    <p class="mb-2"><i class="fas fa-phone-alt mr-2"></i>1900 1234</p>
+                    <p><i class="fas fa-envelope mr-2"></i>support@meodigiay.com</p>
+                </div>
+            </div>
+            <hr class="mt-4 mb-4" style="background-color: rgba(255,255,255,0.1);">
+            <div class="row">
+                <div class="col-md-6 text-center text-md-left">
+                    <p class="mb-0">&copy; 2025 MEODIGIAY. Tất cả quyền được bảo lưu.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-right">
+                    <img src="./source/images/payment-methods.png" alt="Phương thức thanh toán" style="height: 30px;">
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!--<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>-->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // Hiển thị đơn hàng từ localStorage
+        function renderOrderSummary() {
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            let html = '';
+            let subtotal = 0;
+            cart.forEach(item => {
+                let price = parseInt((item.price || '0').replace(/\D/g, ''));
+            let itemTotal = price * item.quantity;
+            subtotal += itemTotal;
+            html += `<div class='row'>
+                        <div class='col-7'>${item.title} <span class='text-muted'>(x${item.quantity})</span></div>
+                        <div class='col-5 text-right'>${itemTotal.toLocaleString()}đ</div>
+                    </div>`;
+        });
+
+        document.getElementById('orderItems').innerHTML = html;
+        document.getElementById('orderSubtotal').textContent = subtotal.toLocaleString() + 'đ';
+        document.getElementById('orderTotal').textContent = subtotal.toLocaleString() + 'đ';
+        }
+
+        document.addEventListener('DOMContentLoaded', function () {
+            renderOrderSummary();
+
+            document.getElementById('checkoutForm').addEventListener('submit', function (e) {
+                e.preventDefault();// Chặn hành vi gửi form mặc định (không tải lại trang)
+
+                sessionStorage.setItem('orderName', document.getElementById('customerName').value);
+                sessionStorage.setItem('orderPhone', document.getElementById('customerPhone').value);
+                sessionStorage.setItem('orderEmail', document.getElementById('customerEmail').value);
+                sessionStorage.setItem('orderAddress', document.getElementById('customerAddress').value);
+                sessionStorage.setItem('orderNote', document.getElementById('customerNote').value);
+
+                let paymentMethod = document.querySelector('input[name="payment"]:checked').id;
+                sessionStorage.setItem('orderPayment', paymentMethod);
+
+                sessionStorage.setItem('orderTime', new Date().toISOString());
+
+                window.location.href = 'DonHang.html';
+            });
+        });
+    </script>
+
+</body>
+</html>
